@@ -8,11 +8,13 @@ import { CaseStudiesPreview } from '@/components/home/CaseStudiesPreview'
 import { BookSeriesSection } from '@/components/home/BookSeriesSection'
 import { InsightsPreview } from '@/components/home/InsightsPreview'
 import { CTABanner } from '@/components/shared/CTABanner'
+import { ScrollToTop } from '@/components/shared/ScrollToTop'
 
 export default function HomePage() {
   return (
     <>
       <SiteHeader />
+      <ScrollToTop />
       <main>
         <HeroSection />
         <TrustedBy />

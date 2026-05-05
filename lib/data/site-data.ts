@@ -452,7 +452,7 @@ export const TEAM = [
       'Architect of the Quality Improvement 5-stage model',
       'Author, Library of Excellence (forthcoming)',
     ],
-    image: null,
+    image: '/images/dr-gallie.jpg',
   },
   {
     slug: 'dr-n-mokoena',

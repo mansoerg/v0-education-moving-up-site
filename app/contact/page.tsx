@@ -128,14 +128,17 @@ export default function ContactPage() {
                     <label className="block text-sm font-sans font-medium text-ink mb-2">
                       Role
                     </label>
-                    <select className="w-full border border-border bg-background px-4 py-3 text-sm font-sans focus:outline-none focus:ring-1 focus:ring-accent text-muted-foreground">
-                      <option value="" disabled selected>Select your role</option>
-                      <option>District Director / Official</option>
-                      <option>Principal / School Leader</option>
-                      <option>Department of Education</option>
-                      <option>University / Researcher</option>
-                      <option>Foundation / Funder</option>
-                      <option>Other</option>
+                    <select
+                      defaultValue=""
+                      className="w-full border border-border bg-background px-4 py-3 text-sm font-sans focus:outline-none focus:ring-1 focus:ring-accent text-muted-foreground"
+                    >
+                      <option value="" disabled>Select your role</option>
+                      <option value="district">District Director / Official</option>
+                      <option value="principal">Principal / School Leader</option>
+                      <option value="department">Department of Education</option>
+                      <option value="university">University / Researcher</option>
+                      <option value="foundation">Foundation / Funder</option>
+                      <option value="other">Other</option>
                     </select>
                   </div>
                   <div>
