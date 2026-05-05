@@ -1,0 +1,191 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================================
+   EDUCATION MOVING UP — Design Tokens
+   Editorial / Academic — Research-driven, institutional, warm
+   ============================================================
+
+   COLOUR PALETTE (5 colours)
+   1. --cream      : warm off-white background   #F8F5EF
+   2. --ink        : deep charcoal-navy text      #1B2633
+   3. --navy       : primary brand navy           #0E2038
+   4. --gold       : amber accent                 #C8922A
+   5. --rule-color : soft border / divider        #DDD8CE
+
+   TYPOGRAPHY
+   --font-serif    : Playfair Display (headings, display)
+   --font-sans     : Inter (body, UI, labels)
+
+   SPACING
+   --radius        : 2px  (very minimal — editorial, not rounded)
+
+   SECTION TYPES
+   Light  : bg-background (cream)
+   Midtone: bg-muted (light warm gray)
+   Dark   : bg-primary (deep navy) + text-primary-foreground
+   ============================================================ */
+
+:root {
+  /* Core palette */
+  --background: oklch(0.976 0.009 82);
+  --foreground: oklch(0.178 0.024 248);
+
+  /* Cards / surfaces */
+  --card: oklch(0.985 0.006 82);
+  --card-foreground: oklch(0.178 0.024 248);
+  --popover: oklch(0.985 0.006 82);
+  --popover-foreground: oklch(0.178 0.024 248);
+
+  /* Primary — deep navy */
+  --primary: oklch(0.225 0.052 243);
+  --primary-foreground: oklch(0.976 0.009 82);
+
+  /* Secondary — mid navy (for hover states) */
+  --secondary: oklch(0.28 0.045 243);
+  --secondary-foreground: oklch(0.976 0.009 82);
+
+  /* Muted — light warm gray */
+  --muted: oklch(0.942 0.009 82);
+  --muted-foreground: oklch(0.48 0.018 250);
+
+  /* Accent — warm amber gold */
+  --accent: oklch(0.72 0.128 68);
+  --accent-foreground: oklch(0.178 0.024 248);
+
+  /* Destructive */
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+
+  /* Borders & inputs */
+  --border: oklch(0.878 0.010 82);
+  --input: oklch(0.878 0.010 82);
+  --ring: oklch(0.72 0.128 68);
+
+  /* Radius — minimal, editorial */
+  --radius: 0.125rem;
+
+  /* Brand tokens */
+  --navy: oklch(0.225 0.052 243);
+  --gold: oklch(0.72 0.128 68);
+  --cream: oklch(0.976 0.009 82);
+  --ink: oklch(0.178 0.024 248);
+  --rule-color: oklch(0.878 0.010 82);
+
+  /* Sidebar */
+  --sidebar: oklch(0.225 0.052 243);
+  --sidebar-foreground: oklch(0.976 0.009 82);
+  --sidebar-primary: oklch(0.72 0.128 68);
+  --sidebar-primary-foreground: oklch(0.178 0.024 248);
+  --sidebar-accent: oklch(0.28 0.045 243);
+  --sidebar-accent-foreground: oklch(0.976 0.009 82);
+  --sidebar-border: oklch(0.32 0.040 243);
+  --sidebar-ring: oklch(0.72 0.128 68);
+}
+
+@theme inline {
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-serif: var(--font-playfair), Georgia, serif;
+  --font-mono: 'Geist Mono', monospace;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Brand colour utilities */
+  --color-navy: var(--navy);
+  --color-gold: var(--gold);
+  --color-cream: var(--cream);
+  --color-ink: var(--ink);
+  --color-rule: var(--rule-color);
+
+  --radius-sm: calc(var(--radius) - 1px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  /* Editorial horizontal rule */
+  hr {
+    @apply border-border;
+  }
+}
+
+/* ============================================================
+   UTILITY CLASSES — Site-specific patterns
+   ============================================================ */
+
+@layer utilities {
+  /* Section containers */
+  .section-container {
+    @apply max-w-7xl mx-auto px-6 lg:px-12;
+  }
+
+  /* Label / overline text — small uppercase tracking */
+  .label-text {
+    @apply text-xs font-sans font-semibold uppercase tracking-widest text-muted-foreground;
+  }
+
+  /* Gold rule accent */
+  .gold-rule {
+    @apply block h-px w-12 bg-accent mb-6;
+  }
+
+  /* Stage number display */
+  .stage-number {
+    @apply font-serif text-[120px] font-bold leading-none text-border select-none;
+  }
+
+  /* Editorial divider */
+  .editorial-divider {
+    @apply border-t border-border;
+  }
+}
+
