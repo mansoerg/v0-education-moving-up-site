@@ -1,6 +1,7 @@
 import { SiteHeader } from '@/components/layout/SiteHeader'
 import { SiteFooter } from '@/components/layout/SiteFooter'
 import { PageHero } from '@/components/shared/PageHero'
+import { NewsletterForm } from '@/components/shared/NewsletterForm'
 import { INSIGHTS } from '@/lib/data/site-data'
 import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
@@ -56,19 +57,19 @@ export default function InsightsPage() {
         {/* All insights */}
         <section className="py-20 lg:py-28 bg-background">
           <div className="section-container">
-            {/* Filter tabs — static, for migration */}
+            {/* Filter tabs — static display */}
             <div className="flex items-center gap-1 mb-10 border-b border-border pb-4">
               {['All', 'Methodology', 'Research', 'Field Notes'].map((cat) => (
-                <button
+                <span
                   key={cat}
                   className={
                     cat === 'All'
                       ? 'px-3 py-1.5 text-sm font-sans font-medium bg-ink text-background'
-                      : 'px-3 py-1.5 text-sm font-sans text-muted-foreground hover:text-ink transition-colors'
+                      : 'px-3 py-1.5 text-sm font-sans text-muted-foreground'
                   }
                 >
                   {cat}
-                </button>
+                </span>
               ))}
             </div>
 
@@ -122,22 +123,7 @@ export default function InsightsPage() {
               <p className="text-sm text-muted-foreground mb-6">
                 We write when there is something worth reading. No schedule, no filler.
               </p>
-              <form
-                className="flex flex-col sm:flex-row gap-3"
-                onSubmit={(e) => e.preventDefault()}
-              >
-                <input
-                  type="email"
-                  className="flex-1 border border-border bg-background px-4 py-3 text-sm font-sans focus:outline-none focus:ring-1 focus:ring-accent"
-                  placeholder="your@email.com"
-                />
-                <button
-                  type="submit"
-                  className="px-5 py-3 bg-primary text-primary-foreground text-sm font-sans font-semibold hover:bg-secondary transition-colors shrink-0"
-                >
-                  Subscribe
-                </button>
-              </form>
+              <NewsletterForm variant="stacked" />
             </div>
           </div>
         </section>

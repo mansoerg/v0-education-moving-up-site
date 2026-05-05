@@ -2,6 +2,8 @@ import { SiteHeader } from '@/components/layout/SiteHeader'
 import { SiteFooter } from '@/components/layout/SiteFooter'
 import { PageHero } from '@/components/shared/PageHero'
 import { CTABanner } from '@/components/shared/CTABanner'
+import { NewsletterForm } from '@/components/shared/NewsletterForm'
+import { ResourceButton } from '@/components/shared/ResourceButtons'
 import { RESOURCES, SFI_DIMENSIONS } from '@/lib/data/site-data'
 import { Download, Lock } from 'lucide-react'
 
@@ -101,9 +103,7 @@ export default function ResourcesPage() {
                   </p>
                   <div className="flex items-center justify-between border-t border-border pt-4">
                     <span className="text-xs text-muted-foreground">{resource.format}</span>
-                    <button className="text-sm font-sans font-semibold text-accent hover:text-accent/80 transition-colors">
-                      {resource.ctaLabel}
-                    </button>
+                    <ResourceButton label={resource.ctaLabel} variant="accent" />
                   </div>
                 </div>
               ))}
@@ -133,9 +133,7 @@ export default function ResourcesPage() {
                   </p>
                   <div className="flex items-center justify-between border-t border-border pt-4">
                     <span className="text-xs text-muted-foreground">{resource.format}</span>
-                    <button className="text-sm font-sans font-semibold text-primary hover:text-secondary transition-colors">
-                      {resource.ctaLabel}
-                    </button>
+                    <ResourceButton label={resource.ctaLabel} variant="primary" />
                   </div>
                 </div>
               ))}
@@ -158,22 +156,7 @@ export default function ResourcesPage() {
                   A short letter, when there is something worth saying.
                 </p>
               </div>
-              <form
-                className="flex flex-col sm:flex-row gap-3 shrink-0"
-                onSubmit={(e) => e.preventDefault()}
-              >
-                <input
-                  type="email"
-                  className="border border-border bg-background px-4 py-2.5 text-sm font-sans focus:outline-none focus:ring-1 focus:ring-accent w-64"
-                  placeholder="your@email.com"
-                />
-                <button
-                  type="submit"
-                  className="px-4 py-2.5 bg-primary text-primary-foreground text-sm font-sans font-medium hover:bg-secondary transition-colors"
-                >
-                  Subscribe
-                </button>
-              </form>
+              <NewsletterForm />
             </div>
           </div>
         </section>
